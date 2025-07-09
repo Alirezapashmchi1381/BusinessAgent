@@ -44,6 +44,8 @@ def recommend_node(state: dict) -> dict:
     agent.recommendation = recommendation
     print(f"\n💡 Recommendation: {recommendation}")
     return agent.dict()
+
+def create_graph()->StateGraph:
     builder = StateGraph(dict)
     builder.add_node("input", input_node)
     builder.add_node("metrics", compute_metrics)
@@ -52,4 +54,6 @@ def recommend_node(state: dict) -> dict:
     builder.set_entry_point("input")
     builder.add_edge("input", "metrics")
     builder.add_edge("metrics", "recommend")
-    builder.add_edge("recommend", END)
+    builder.add_edge("recommend", END) 
+    graph = builder.compile()
+    return graph  

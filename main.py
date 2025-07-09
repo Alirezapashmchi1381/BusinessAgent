@@ -1,9 +1,6 @@
-from langgraph.graph import StateGraph, END
-
+from BusinessGraph import create_graph 
 def main():
-    
-
-    graph = builder.compile()
+    graph = create_graph()
     graph.invoke({})
 if __name__ == "main":
     main()
